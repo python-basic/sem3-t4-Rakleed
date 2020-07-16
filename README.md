@@ -223,9 +223,71 @@ if __name__ == "__main__":
 ### 4.1. Сравнительный анализ библиотек для тестирования.
 [Результат.](https://github.com/python-basic/sem3-t4-Rakleed/blob/master/src/programming-indepworkvar4-1-result.pdf)
 
-### [4.2. ](https://repl.it/@Rakleed/programming-indepworkvar4-2)
-
+### [4.2. Разработка программы для считывания данных из JSON-файла, вывода их в табличном виде и тестирования.](https://repl.it/@Rakleed/programming-indepworkvar4-2)
 ```python
+"""
+    Автор: Моисеенко Павел, группа № 1, подгруппа № 2.
 
+    ВСР 4.2. Задание: разработать программу для считывания данных из
+    JSON-файла и вывода их в табличном виде на экран и протестировать
+    работоспособность с использованием unittest.
+
+"""
+
+import json
+
+
+def list_to_pretty_string(list_of_lists: list) -> str:
+    new_list = list()
+    for each_list in list_of_lists:
+        new_list.append(list(map(lambda x: str(x).center(30, ' '), each_list)))
+    new_list = list(map(lambda x: '|'.join(x) + '\n' + '-' * len('|'.join(x)), new_list))
+    new_list = '\n'.join(new_list)
+    return new_list
+
+
+def make_table(dcts: list) -> str:
+    table = list()
+    first_line = list(dcts[0].keys())
+    table.append(first_line)
+    for i in range(0, len(dcts)):
+        table.append(list(dcts[i].values()))
+    return list_to_pretty_string(table)
+
+
+def get_from_file():
+    with open('file.json') as js_file:
+        dicts = json.loads(''.join(js_file.readlines()))
+    return dicts
+
+
+def main():
+    js_dicts = get_from_file()
+    table = make_table(js_dicts)
+    print(table)
+
+
+if __name__ == '__main__':
+    main()
+```
+```python
+import unittest
+import main
+
+
+class TestTableMethods(unittest.TestCase):
+
+    def test_make_table_is_str(self):
+        self.assertEqual(type(main.make_table([{'a': '1'}, {'b': '2'}])), type(str()))
+
+    def test_lst_to_str(self):
+        self.assertEqual(type(main.list_to_pretty_string([[1, 2], [3, 4]])), type(str()))
+        self.assertEqual(type(main.list_to_pretty_string([[1, 2], [3, '4']])), type(str()))
+
+    def test_file_extra(self):
+        self.assertEqual(type(main.get_from_file()), type(dict()))
+
+
+TestTableMethods()
 ```
 ![Result of indepworkvar4-2](https://github.com/python-basic/sem3-t4-Rakleed/blob/master/src/programming-indepworkvar4-2-result.png)
