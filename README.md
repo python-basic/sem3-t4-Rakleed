@@ -1,7 +1,7 @@
 # Содержание
 - [ЛР № 12](#лабораторная-работа--12)
 - [ИСР № 4](#инвариативная-самостоятельная-работа--4)
-    - [1 задание]
+    - [1 задание](#41-реализация-программы-для-считывания-данных-из-файла-json-и-их-вывод-в-табличном-формате-и-тестирование-работоспособности)
     - [2 задание]
     - [3 задание]
 - [ВСР № 4](#вариативная-самостоятельная-работа--4)
@@ -105,19 +105,56 @@ def main():
         data_dict = json.load(f)
 
     test_function(json_table, data_dict)
-    """
-    for element in table:
-      print(element)
-    """
 
 
 main()
 ```
 ![Result of indepworkinvar4-1](https://github.com/python-basic/sem3-t4-Rakleed/blob/master/src/programming-indepworkinvar4-1-result.png)
 
-### [4.2. ](https://repl.it/@Rakleed/programming-indepworkinvar4-2)
+### [4.2. Дополнить программу задания 4.1 тестами с использованием библиотеки doctest.](https://repl.it/@Rakleed/programming-indepworkinvar4-2)
 ```python
+"""
+    Автор: Моисеенко Павел, группа № 1, подгруппа № 2.
 
+    ЛР 12. Задание: дополнить программу задания 4.1 тестами с
+    использованием библиотеки doctest.
+
+"""
+
+import json
+
+
+def json_table():
+    """
+    >>> json_table()[1]
+    '| id  | first_name |    last_name    |             email             | gender |    ip_address    |'
+    """
+
+    with open('file.json') as f:
+        data_dict = json.load(f)
+    table = []
+    string = '| {id:^3} | {first_name:^10} | {last_name:^15} | {email:^30} | {gender:^6} | {ip_address:^16} |'
+    t_caption = '| {:^3} | {:^10} | {:^15} | {:^30} | {:^6} | {:^16} |'.format('id', 'first_name', 'last_name', 'email',
+                                                                               'gender', 'ip_address')
+    header = '-' * len(t_caption)
+    table.append(header)
+    table.append(t_caption)
+    table.append(header)
+    for element in range(len(data_dict)):
+        temp = data_dict[element]
+        res = string.format(**temp)
+        table.append(res)
+    table.append(header)
+    return table
+
+
+def main():
+    foo = json_table()
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
 ```
 ![Result of indepworkinvar4-2](https://github.com/python-basic/sem3-t4-Rakleed/blob/master/src/programming-indepworkinvar4-2-result.png)
 
