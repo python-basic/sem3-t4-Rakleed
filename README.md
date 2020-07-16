@@ -220,11 +220,8 @@ if __name__ == "__main__":
 ![Result of indepworkinvar4-3](https://github.com/python-basic/sem3-t4-Rakleed/blob/master/src/programming-indepworkinvar4-3-result.png)
 
 # Вариативная самостоятельная работа № 4
-### [4.1. ](https://repl.it/@Rakleed/programming-indepworkvar4-1)
-```python
-
-```
-![Result of indepworkvar4-1](https://github.com/python-basic/sem3-t4-Rakleed/blob/master/src/programming-indepworkvar4-1-result.png)
+### 4.1. Сравнительный анализ библиотек для тестирования.
+[Результат.](https://github.com/python-basic/sem3-t4-Rakleed/blob/master/src/programming-indepworkvar4-1.pdf)
 
 ### [4.2. ](https://repl.it/@Rakleed/programming-indepworkvar4-2)
 
