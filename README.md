@@ -5,7 +5,7 @@
     - [2 задание](#42-дополнить-программу-задания-41-тестами-с-использованием-библиотеки-doctest)
     - [3 задание](#43-дополнить-программу-задания-41-42-тестами-с-использованием-пакета-pytest)
 - [ВСР № 4](#вариативная-самостоятельная-работа--4)
-    - [1 задание]
+    - [1 задание](#41-сравнительный-анализ-библиотек-для-тестирования)
     - [2 задание]
 
 # [Лабораторная работа № 12](https://repl.it/@Rakleed/programming-lab12)
@@ -221,7 +221,7 @@ if __name__ == "__main__":
 
 # Вариативная самостоятельная работа № 4
 ### 4.1. Сравнительный анализ библиотек для тестирования.
-[Результат.](https://github.com/python-basic/sem3-t4-Rakleed/blob/master/src/programming-indepworkvar4-1.pdf)
+[Результат.](https://github.com/python-basic/sem3-t4-Rakleed/blob/master/src/programming-indepworkvar4-1-result.pdf)
 
 ### [4.2. ](https://repl.it/@Rakleed/programming-indepworkvar4-2)
 
